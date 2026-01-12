@@ -5,7 +5,6 @@
 
 // --- الأساسيات (1-20) ---
 
-console.log(hoursToSeconds(1));
 
 // 1. فنكشن تعيد مجموع رقمين
 function sum(a, b) {
@@ -58,67 +57,115 @@ function remainder(a, b) {
 }
 
 // 11. فنكشن تتحقق إذا كان الرقم يقبل القسمة على 10
-function isDivisibleByTen(n) {}
+function isDivisibleByTen(n) {
+    return (n%10 == 0)? true: false;
+}
 
 // 12. فنكشن تعيد مكعب الرقم (n^3)
-function cube(n) {}
+function cube(n) {
+    return n**3;
+}
 
 // 13. فنكشن تأخذ الاسم وتعيد رسالة ترحيب "Hello [name]"
-function greet(name) {}
+function greet(name) {
+    return `Hello ${name}`;
+}
 
 // 14. فنكشن تتحقق إذا كان النص فارغاً
-function isEmpty(str) {}
+function isEmpty(str) {
+    return (str.length == 0)? true: false;
+}
 
 // 15. فنكشن تعيد طول النص (عدد الحروف)
-function strLength(str) {}
+function strLength(str) {
+    return str.length;
+}
 
 // 16. فنكشن تقارن بين نصين وتعيد true إذا كانا متطابقين
-function compareStrings(str1, str2) {}
+function compareStrings(str1, str2) {
+    return (str1 == str2)? true: false;
+}
 
 // 17. فنكشن تعيد الرقم الأصغر بين رقمين
-function getMin(a, b) {}
+function getMin(a, b) {
+    return (a == b)? "Equal": Math.min(a, b);
+}
 
 // 18. فنكشن تعيد الرقم الأكبر بين رقمين
-function getMax(a, b) {}
+function getMax(a, b) {
+    return (a == b)? "Equal": Math.max(a, b);
+}
 
 // 19. فنكشن تحول الكيلومتر إلى متر
-function kmToMeters(km) {}
+function kmToMeters(km) {
+    return km * 1000;
+}
 
 // 20. فنكشن تحول السليزيوس إلى فهرنهايت
-function celsiusToFahrenheit(c) {}
+function celsiusToFahrenheit(c) {
+    return Math.round((c * 1.8 + 32) * 10) / 10;
+}
 
 
 // --- المصفوفات والنصوص (21-40) ---
 
 // 21. فنكشن تعيد أول عنصر في المصفوفة
-function getFirstElement(arr) {}
+function getFirstElement(arr) {
+    return arr[0];
+}
 
 // 22. فنكشن تعيد آخر عنصر في المصفوفة
-function getLastElement(arr) {}
+function getLastElement(arr) {
+    return arr[arr.length - 1];
+}
 
 // 23. فنكشن تعيد مجموع كل الأرقام في المصفوفة
-function sumArray(arr) {}
+function sumArray(arr) {
+    return arr.reduce(sum);//sum is the function on line 11
+    // or
+    // let a = 0;
+    // for(i = 0; i < arr.length; i++) {
+    //     a += arr[i];
+    // }
+    // return a;
+}
 
 // 24. فنكشن تعيد متوسط أرقام المصفوفة
-function averageArray(arr) {}
+function averageArray(arr) {
+    return sumArray(arr) / arr.length;
+}
 
 // 25. فنكشن تبحث عن عنصر داخل المصفوفة وتعيد true إذا وجد
-function findElement(arr, elem) {}
+function findElement(arr, elem) {
+    return arr.includes(elem);
+}
 
 // 26. فنكشن تعيد مصفوفة جديدة تحتوي على الأرقام الزوجية فقط من المصفوفة الأصلية
-function filterEvens(arr) {}
+function filterEvens(arr) {
+    return arr.filter(isEven);
+}
 
 // 27. فنكشن تعكس ترتيب المصفوفة
-function reverseArray(arr) {}
+function reverseArray(arr) {
+    return arr.reverse();
+}
 
 // 28. فنكشن تعكس النص (مثال: "abc" تصبح "cba")
-function reverseString(str) {}
+function reverseString(str) {
+    return str.split("").reverse().join("");
+}
 
 // 29. فنكشن تحول جميع حروف النص إلى حروف كبيرة (Uppercase)
-function toUpper(str) {}
+function toUpper(str) {
+    return str.toUpperCase();
+}
 
 // 30. فنكشن تحذف المسافات من بداية ونهاية النص
-function trimString(str) {}
+function trimString(str) {  
+    return str.split(" ").filter((a) => {
+        return (a == "")? false: true;
+    }).join(" ");
+}
 
 // 31. فنكشن تدمج مصفوفتين في مصفوفة واحدة
 function mergeArrays(arr1, arr2) {}
