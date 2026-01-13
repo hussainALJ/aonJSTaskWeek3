@@ -183,7 +183,7 @@ function findMax(arr) {
 function findMin(arr) {
     return arr.reduce((a, b) => {
         return (a < b)? a: b;
-    })
+    })//
 }
 
 // 34. فنكشن تحسب عدد مرات تكرار حرف معين في نص
