@@ -4,6 +4,7 @@
  */
 
 // --- الأساسيات (1-20) ---
+console.log(countChar("aaaaaksfjdflkdjfld", 'a'));
 
 
 // 1. فنكشن تعيد مجموع رقمين
@@ -187,13 +188,23 @@ function findMin(arr) {
 }
 
 // 34. فنكشن تحسب عدد مرات تكرار حرف معين في نص
-function countChar(str, char) {}
+function countChar(str, char) {
+    return str.split("").reduce((a, b) => {
+        return (b == char)? a += 1: a;
+    }, 0)
+}
 
 // 35. فنكشن تحول النص إلى مصفوفة كلمات
-function splitToWords(str) {}
+function splitToWords(str) {
+    return str.split(" ");
+}
 
 // 36. فنكشن تتحقق إذا كانت المصفوفة تحتوي على رقم سالب
-function hasNegative(arr) {}
+function hasNegative(arr) {
+    return arr.reduce((a, b) => {
+        return (b < 0)? a = true: a;
+    }, false);
+}
 
 // 37. فنكشن تعيد مصفوفة تحتوي على أطوال الكلمات في مصفوفة نصوص
 function wordsLengths(arr) {}
