@@ -4,7 +4,7 @@
  */
 
 // --- الأساسيات (1-20) ---
-console.log(countChar("aaaaaksfjdflkdjfld", 'a'));
+console.log(removeLast([1, 2, 3]));
 
 
 // 1. فنكشن تعيد مجموع رقمين
@@ -207,16 +207,32 @@ function hasNegative(arr) {
 }
 
 // 37. فنكشن تعيد مصفوفة تحتوي على أطوال الكلمات في مصفوفة نصوص
-function wordsLengths(arr) {}
+function wordsLengths(arr) {
+    return arr.map((a) => {
+        return a.length;
+    });
+}
 
 // 38. فنكشن تحول مصفوفة من الأرقام إلى نصوص
-function numsToStrings(arr) {}
+function numsToStrings(arr) {
+    return arr.map((a) => {
+        return `${a}`;
+    });
+}
 
 // 39. فنكشن تعيد النص مكرر n من المرات
-function repeatStr(str, n) {}
+function repeatStr(str, n) {
+    let newStr = str;
+    for(i = 0; i < n - 1; i++) {
+        newStr += str; 
+    }
+    return newStr;
+}
 
 // 40. فنكشن تحذف العنصر الأخير من المصفوفة وتعيد المصفوفة الجديدة
-function removeLast(arr) {}
+function removeLast(arr) {
+    return arr.slice(0, arr.length - 1);
+}
 
 
 // --- المنطق والعمليات المتوسطة (41-60) ---
