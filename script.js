@@ -168,13 +168,23 @@ function trimString(str) {
 }
 
 // 31. فنكشن تدمج مصفوفتين في مصفوفة واحدة
-function mergeArrays(arr1, arr2) {}
+function mergeArrays(arr1, arr2) {
+    return arr1.concat(arr2);
+}
 
 // 32. فنكشن تعيد أكبر رقم في مصفوفة
-function findMax(arr) {}
+function findMax(arr) {
+    return arr.reduce((a, b) => {
+        return (a > b)? a: b;
+    })
+}
 
 // 33. فنكشن تعيد أصغر رقم في مصفوفة
-function findMin(arr) {}
+function findMin(arr) {
+    return arr.reduce((a, b) => {
+        return (a < b)? a: b;
+    })
+}
 
 // 34. فنكشن تحسب عدد مرات تكرار حرف معين في نص
 function countChar(str, char) {}
