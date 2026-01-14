@@ -253,14 +253,22 @@ function randomTen() {
 
 // 43. فنكشن تتحقق إذا كان النص ينتهي بحرف معين
 function endsWith(str, char) {
-    
+    return str.includes(char, str.length - 1);
 }
 
 // 44. فنكشن تحسب عدد حروف العلة (a, e, i, o, u) في نص
-function countVowels(str) {}
+function countVowels(str) {
+    return str.split("").find((item) => {
+        return [a, e, i, o, u].includes(item);
+    }).length;
+}
 
 // 45. فنكشن تحذف العناصر المكررة من المصفوفة
-function removeDuplicates(arr) {}
+function removeDuplicates(arr) {
+    return arr.filter((a, index) => {
+        return arr.includes(a, index + 1)
+    })
+}
 
 // 46. فنكشن ترتب المصفوفة تصاعدياً
 function sortAsc(arr) {}
