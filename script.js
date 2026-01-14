@@ -271,13 +271,19 @@ function removeDuplicates(arr) {
 }
 
 // 46. فنكشن ترتب المصفوفة تصاعدياً
-function sortAsc(arr) {}
+function sortAsc(arr) {
+    return arr.sort((a, b) => {a - b});
+}
 
 // 47. فنكشن ترتب المصفوفة تنازلياً
-function sortDesc(arr) {}
+function sortDesc(arr) {
+    return arr.sort((a, b) => {-a + b});
+}
 
 // 48. فنكشن تتحقق إذا كانت الكلمة "Palindrome" (تقرأ من الجهتين نفس الشيء)
-function isPalindrome(str) {}
+function isPalindrome(str) {
+    return (str.split("").revrse() == str)? true: false;
+}
 
 // 49. فنكشن تحول أول حرف من كل كلمة إلى حرف كبير
 function capitalizeWords(str) {}
