@@ -282,14 +282,20 @@ function sortDesc(arr) {
 
 // 48. فنكشن تتحقق إذا كانت الكلمة "Palindrome" (تقرأ من الجهتين نفس الشيء)
 function isPalindrome(str) {
-    return (str.split("").revrse() == str)? true: false;
+    return (str.toLowerCase().split("").revrse() == str)? true: false;
 }
 
 // 49. فنكشن تحول أول حرف من كل كلمة إلى حرف كبير
-function capitalizeWords(str) {}
+function capitalizeWords(str) {
+   return str.toUpperCase();
+}
 
 // 50. فنكشن تعيد الأرقام المشتركة بين مصفوفتين
-function getIntersection(arr1, arr2) {}
+function getIntersection(arr1, arr2) {
+    return arr1.find((a) => {
+        return arr2.includes(a);
+    })
+}
 
 // 51. فنكشن تحول الرقم إلى نظام الثنائي (Binary)
 function decimalToBinary(n) {}
