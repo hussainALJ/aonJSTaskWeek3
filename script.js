@@ -238,13 +238,23 @@ function removeLast(arr) {
 // --- المنطق والعمليات المتوسطة (41-60) ---
 
 // 41. فنكشن تحسب مضروب الرقم (Factorial)
-function factorial(n) {}
+function factorial(n) {
+    let num;
+    for(i = n; i > 0; i--){
+       num = n * (n - 1);
+    }
+    return num;
+}
 
 // 42. فنكشن تولد رقماً عشوائياً بين 1 و 10
-function randomTen() {}
+function randomTen() {
+   return Math.random() * 10;
+}
 
 // 43. فنكشن تتحقق إذا كان النص ينتهي بحرف معين
-function endsWith(str, char) {}
+function endsWith(str, char) {
+    
+}
 
 // 44. فنكشن تحسب عدد حروف العلة (a, e, i, o, u) في نص
 function countVowels(str) {}
