@@ -4,7 +4,7 @@
  */
 
 // --- الأساسيات (1-20) ---
-console.log(removeLast([1, 2, 3]));
+console.log();
 
 
 // 1. فنكشن تعيد مجموع رقمين
@@ -239,16 +239,15 @@ function removeLast(arr) {
 
 // 41. فنكشن تحسب مضروب الرقم (Factorial)
 function factorial(n) {
-    let num;
-    for(i = n; i > 0; i--){
-       num = n * (n - 1);
+    for(i = n; i > 1; i--){
+       n = n * (i - 1);
     }
-    return num;
+    return n;
 }
 
 // 42. فنكشن تولد رقماً عشوائياً بين 1 و 10
 function randomTen() {
-   return Math.random() * 10;
+   return Math.round(Math.random() * 10);
 }
 
 // 43. فنكشن تتحقق إذا كان النص ينتهي بحرف معين
@@ -258,36 +257,38 @@ function endsWith(str, char) {
 
 // 44. فنكشن تحسب عدد حروف العلة (a, e, i, o, u) في نص
 function countVowels(str) {
-    return str.split("").find((item) => {
-        return [a, e, i, o, u].includes(item);
+    return str.split("").filter((item) => {
+        return ['a', 'e', 'i', 'o', 'u'].includes(item);
     }).length;
 }
 
 // 45. فنكشن تحذف العناصر المكررة من المصفوفة
 function removeDuplicates(arr) {
     return arr.filter((a, index) => {
-        return arr.includes(a, index + 1)
+        return !arr.includes(a, index + 1)
     })
 }
 
 // 46. فنكشن ترتب المصفوفة تصاعدياً
 function sortAsc(arr) {
-    return arr.sort((a, b) => {a - b});
+    return arr.sort((a, b) => a - b);
 }
 
 // 47. فنكشن ترتب المصفوفة تنازلياً
 function sortDesc(arr) {
-    return arr.sort((a, b) => {-a + b});
+    return arr.sort((a, b) => b - a);
 }
 
 // 48. فنكشن تتحقق إذا كانت الكلمة "Palindrome" (تقرأ من الجهتين نفس الشيء)
 function isPalindrome(str) {
-    return (str.toLowerCase().split("").revrse() == str)? true: false;
+    return (str.toLowerCase().split("").reverse().join("") == str.toLowerCase())? true: false;
 }
 
 // 49. فنكشن تحول أول حرف من كل كلمة إلى حرف كبير
 function capitalizeWords(str) {
-   return str.toUpperCase();
+   return str.split(' ').map((a) => {
+    return a.charAt(0).toUpperCase().concat(a.slice(1))
+   }).join(' ');
 }
 
 // 50. فنكشن تعيد الأرقام المشتركة بين مصفوفتين
@@ -298,31 +299,57 @@ function getIntersection(arr1, arr2) {
 }
 
 // 51. فنكشن تحول الرقم إلى نظام الثنائي (Binary)
-function decimalToBinary(n) {}
+function decimalToBinary(n) {
+    return n.toString(2);
+}
 
 // 52. فنكشن تحسب عدد الكلمات في جملة
-function wordCount(str) {}
+function wordCount(str) {
+    return str.split(' ').length;
+}
 
 // 53. فنكشن تستبدل كلمة بكلمة أخرى في نص
-function replaceWord(str, oldW, newW) {}
+function replaceWord(str, oldW, newW) {
+    return str.replace(oldW, newW);
+}
 
 // 54. فنكشن تتحقق إذا كان الرقم أولياً (Prime Number)
-function isPrime(n) {}
+function isPrime(n) {
+    for (i = n - 1; i > 1; i--) {
+        if (n % i == 0) {
+            return true;
+        }
+    }
+    return false;
+}
 
 // 55. فنكشن تعيد مصفوفة بأسماء المستخدمين من مصفوفة كائنات (Objects)
-function getNames(users) {}
+function getNames(users) {
+    return users.map((a) => a.name);
+}
 
 // 56. فنكشن تحسب العمر بناءً على تاريخ الميلاد (سنة الميلاد)
-function calcAge(birthYear) {}
+function calcAge(birthYear) {
+    return new Date().getFullYear() - birthYear;
+}
 
 // 57. فنكشن تولد كود لون سداسي عشري (Hex Color) عشوائي
-function randomHexColor() {}
+function randomHexColor() {
+    return Math.round(Math.random() * 16777215).toString(16);
+}
 
 // 58. فنكشن تتحقق إذا كانت المصفوفة مرتبة
-function isSorted(arr) {}
+function isSorted(arr) {
+    let arrSorted = arr.toSorted((a, b) => a - b)
+    return arr.every((a, index) => {
+        return (a == arrSorted[index])? true: false;
+    })
+}
 
 // 59. فنكشن تدمج كائنين (Objects) في كائن واحد
-function mergeObjects(obj1, obj2) {}
+function mergeObjects(obj1, obj2) {
+    return Object.assign(obj1, obj2);
+}
 
 // 60. فنكشن تحسب مجموع أرقام عدد معين (مثال 123 -> 6)
 function sumDigits(n) {}
