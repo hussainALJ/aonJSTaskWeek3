@@ -4,7 +4,7 @@
  */
 
 // --- الأساسيات (1-20) ---
-console.log();
+console.log(delay(1000));
 
 
 // 1. فنكشن تعيد مجموع رقمين
@@ -352,16 +352,22 @@ function mergeObjects(obj1, obj2) {
 }
 
 // 60. فنكشن تحسب مجموع أرقام عدد معين (مثال 123 -> 6)
-function sumDigits(n) {}
+function sumDigits(n) {
+    return new String(n).split('').reduce((a, b) => Number(a) + Number(b));
+}
 
 
 // --- المستوى المتقدم والمعالجة (61-80) ---
 
 // 61. فنكشن تقوم بعمل "Flatten" لمصفوفة ثنائية الأبعاد (تحويلها لمصفوفة واحدة)
-function flattenArray(arr) {}
+function flattenArray(arr) {
+    return arr.flat();
+}
 
 // 62. فنكشن تنفذ تأخيراً زمنياً (Promise) لمدة معينة
-function delay(ms) {}
+function delay(ms) {
+    return new Promise(() => setTimeout(() => console.log("done"), ms))
+}
 
 // 63. فنكشن تسحب بيانات من رابط (API) باستخدام fetch (Async/Await)
 async function fetchData(url) {}
