@@ -4,7 +4,7 @@
  */
 
 // --- الأساسيات (1-20) ---
-console.log(delay(1000));
+console.log(camelToSnake("camelToSnake"));
 
 
 // 1. فنكشن تعيد مجموع رقمين
@@ -315,7 +315,7 @@ function replaceWord(str, oldW, newW) {
 
 // 54. فنكشن تتحقق إذا كان الرقم أولياً (Prime Number)
 function isPrime(n) {
-    for (i = n - 1; i > 1; i--) {
+    for (let i = n - 1; i > 1; i--) {
         if (n % i == 0) {
             return true;
         }
@@ -373,25 +373,65 @@ function delay(ms) {
 async function fetchData(url) {}
 
 // 64. فنكشن تحول كائن إلى Query String (مثال: {a:1, b:2} -> "a=1&b=2")
-function objectToQueryString(obj) {}
+function objectToQueryString(obj) {
+    return new URLSearchParams(obj).toString();
+}
 
 // 65. فنكشن تتحقق إذا كان كائنان متساويين في المحتوى (Deep Comparison)
-function deepEqual(obj1, obj2) {}
+function deepEqual(obj1, obj2) {
+    const keys1 = Object.keys(obj1);
+    const keys2 = Object.keys(obj2);
+
+    if (keys1.length !== keys2.length) {
+        return false;
+    }
+
+    for (let key of keys1) {
+        if (!keys2.includes(key)) {
+            return false;
+        }
+        if (obj1[key] !== obj2[key]) {
+            return false;
+        }
+    }
+
+    return true;
+}
 
 // 66. فنكشن تعيد مصفوفة من الأرقام الفريدة فقط (التي لم تتكرر أبداً)
-function uniqueOnly(arr) {}
+function uniqueOnly(arr) {
+    let newArr = [];
+    for (const value of arr) {
+        let conter = arr.filter((a) => (a === value)? true: false).length;
+        if (conter === 1) {
+            newArr.push(value);
+        }
+    }
+    return newArr;
+}
 
 // 67. فنكشن تقوم بتقسيم مصفوفة إلى أجزاء صغيرة (Chunking)
-function chunkArray(arr, size) {}
+function chunkArray(arr, size) {
+    let newArr = [];
+    for (let i = 0; i < arr.length / size ; i++) {
+        newArr.push(arr.slice(i * size, (i + 1) * size));
+    }
+    return newArr;
+}
 
 // 68. فنكشن تحسب الفرق بالأيام بين تاريخين
-function daysBetween(date1, date2) {}
+function daysBetween(date1, date2) {
+    let msBetween = new Date (date2).valueOf() - new Date (date1).valueOf();
+    return msBetween / 86400000;
+}
 
 // 69. فنكشن تقوم بعمل "Debounce" لفنكشن أخرى
 function debounce(func, wait) {}
 
 // 70. فنكشن تحول النص من camelCase إلى snake_case
-function camelToSnake(str) {}
+function camelToSnake(str) {
+    return str.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1_$2').toLowerCase();
+}
 
 // 71. فنكشن تعيد أكثر عنصر تكراراً في مصفوفة
 function mostFrequent(arr) {}
