@@ -4,7 +4,7 @@
  */
 
 // --- الأساسيات (1-20) ---
-console.log(swapCase("aasdlkAaAaAA"));
+console.log(daysUntilYearEnd());
 
 
 // 1. فنكشن تعيد مجموع رقمين
@@ -487,40 +487,100 @@ function swapCase(str) {
 }
 
 // 75. فنكشن تحسب قيمة الفائدة البسيطة (P * R * T / 100)
-function simpleInterest(p, r, t) {}
+function simpleInterest(p, r, t) {
+    return p * r * t;
+
+    //اذا تريد نسبة مئوية
+    //return `${(p * r * t) / 100}%`;
+}
 
 // 76. فنكشن تعيد مصفوفة بأسماء المفاتيح (Keys) الموجودة في الكائن
-function getKeys(obj) {}
+function getKeys(obj) {
+    return Object.keys(obj);
+}
 
 // 77. فنكشن تعيد مصفوفة بالقيم (Values) الموجودة في الكائن
-function getValues(obj) {}
+function getValues(obj) {
+    return Object.values(obj);
+}
 
 // 78. فنكشن تحول المصفوفة إلى كائن (Index هو المفتاح)
-function arrayToObject(arr) {}
+function arrayToObject(arr) {
+    return Object.assign({}, arr);
+}
 
 // 79. فنكشن تولد سلسلة فيبوناتشي حتى الرقم n
-function fibonacci(n) {}
+function fibonacci(n) {
+    let fibonacciArr = [0, 1];
+    for (let i = 1; fibonacciArr[fibonacciArr.length - 1] < n; i++) {
+        fibonacciArr.push(fibonacciArr[i - 1] + fibonacciArr[i])
+    }
+    return fibonacciArr;
+}
 
 // 80. فنكشن تتحقق إذا كان الرقم هو "Perfect Square" (له جذر تربيعي صحيح)
-function isPerfectSquare(n) {}
+function isPerfectSquare(n) {
+    let sqrtN = Math.sqrt(n);
+    return Number.isInteger(sqrtN);
+}
 
 
 // --- تحديات إضافية وشاملة (81-100) ---
 
 // 81. فنكشن تحذف القيم "Falsy" من المصفوفة (null, undefined, 0, "")
-function compact(arr) {}
+function compact(arr) {
+    return arr.filter((a) => (a))
+}
 
 // 82. فنكشن تعيد الفرق بين مصفوفتين
-function arrayDiff(arr1, arr2) {}
+function arrayDiff(arr1, arr2) {
+    let parentArr = arr1.concat(arr2);
+    return parentArr.filter((a) => !(arr1.includes(a) && arr2.includes(a)))
+}
 
 // 83. فنكشن تحول الوقت من نظام 12 ساعة إلى 24 ساعة
-function timeConvert12to24(timeStr) {}
+function timeConvert12to24(timeStr) {
+    let timeArr = timeStr.split(':');
+    if (timeArr[timeArr.length - 1].split(' ')[1] == "PM") {
+        timeArr.unshift(Number(timeArr[0]) + 12);
+    }
+    timeArr.pop();
+
+    return timeArr.join(':');
+}
 
 // 84. فنكشن تحسب عدد الأيام المتبقية حتى نهاية السنة
-function daysUntilYearEnd() {}
+function daysUntilYearEnd() {
+    const today = new Date();
+    const endOfYear = new Date(today.getFullYear(), 11, 31);
+    const untilEnd = endOfYear - today;
+
+    return Math.ceil(untilEnd / (1000 * 60 * 60 * 24));
+}
 
 // 85. فنكشن تعيد أصغر رقم موجب مفقود في مصفوفة أرقام
-function firstMissingPositive(arr) {}
+function firstMissingPositive(arr) {
+    const n = arr.length;
+
+    for (let i = 0; i < n; i++) {
+        while (
+        arr[i] > 0 &&
+        arr[i] <= n &&
+        arr[arr[i] - 1] !== arr[i]
+        ) {
+        const correctIndex = arr[i] - 1;
+        [arr[i], arr[correctIndex]] = [arr[correctIndex], arr[i]];
+        }
+    }
+
+    for (let i = 0; i < n; i++) {
+        if (arr[i] !== i + 1) {
+        return i + 1;
+        }
+    }
+
+    return n + 1;
+}
 
 // 86. فنكشن تحسب تكرار الكلمات في نص وتعيدها في كائن
 function wordFrequency(str) {}
