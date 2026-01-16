@@ -4,7 +4,7 @@
  */
 
 // --- الأساسيات (1-20) ---
-console.log(camelToSnake("camelToSnake"));
+console.log(swapCase("aasdlkAaAaAA"));
 
 
 // 1. فنكشن تعيد مجموع رقمين
@@ -370,7 +370,21 @@ function delay(ms) {
 }
 
 // 63. فنكشن تسحب بيانات من رابط (API) باستخدام fetch (Async/Await)
-async function fetchData(url) {}
+async function fetchData(url) {
+    try {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    return response;
+
+    } catch (error) {
+        console.error('Error fetching data:', error.message);
+    }
+}
+
 
 // 64. فنكشن تحول كائن إلى Query String (مثال: {a:1, b:2} -> "a=1&b=2")
 function objectToQueryString(obj) {
@@ -426,7 +440,9 @@ function daysBetween(date1, date2) {
 }
 
 // 69. فنكشن تقوم بعمل "Debounce" لفنكشن أخرى
-function debounce(func, wait) {}
+function debounce(func, wait) {
+}
+
 
 // 70. فنكشن تحول النص من camelCase إلى snake_case
 function camelToSnake(str) {
@@ -434,16 +450,41 @@ function camelToSnake(str) {
 }
 
 // 71. فنكشن تعيد أكثر عنصر تكراراً في مصفوفة
-function mostFrequent(arr) {}
+function mostFrequent(arr) {
+    let counterObj = {};
+    let mostRepeated;
+    for (const value of arr) {
+        counterObj[value] = (counterObj[value] || 0) + 1;
+        if (!mostRepeated) {
+            mostRepeated = value;
+        }else if (counterObj[value] > counterObj[mostRepeated]) {
+            mostRepeated = value;
+        }
+    }
+
+    return mostRepeated;
+}
 
 // 72. فنكشن تخفي أرقام البطاقة الائتمانية عدا آخر 4 أرقام
-function maskCard(number) {}
+function maskCard(number) {
+    return number.toString().replace(/.(?=.{4,}$)/g, '#')
+}
 
 // 73. فنكشن تتحقق إذا كان النص يحتوي على أرقام فقط
-function isNumeric(str) {}
+function isNumeric(str) {
+    return str.split('').every((a) => a == /[0-9]/g)
+}
 
 // 74. فنكشن تحول الحروف الكبيرة لصغيرة والعكس في نص
-function swapCase(str) {}
+function swapCase(str) {
+    return str.split('').map((char) => {
+        if ((/[a-z]/).test(char)) {
+            return char.toUpperCase();
+        }else {
+            return char.toLowerCase();
+        }
+    }).join('');
+}
 
 // 75. فنكشن تحسب قيمة الفائدة البسيطة (P * R * T / 100)
 function simpleInterest(p, r, t) {}
